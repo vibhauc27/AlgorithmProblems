@@ -1,37 +1,27 @@
 ﻿using System;
 namespace AlgorithmProblems
 {
-    class InsertionSort
+    class Anagram
     {
         static void Main(string[] args)
         {
-            int[] array = new int[10] { 6,10,7,8,1,4,2,9,3,5 };
-            int n = 10, i, j, val, flag;
-            
-            Console.WriteLine("Initial array is: ");
-            for (i = 0; i < n; i++)
+
+            string str1 = "heart";
+            string str2 = "earth";
+            char[] ch1 = str1.ToLower().ToCharArray();
+            char[] ch2 = str2.ToLower().ToCharArray();
+            Array.Sort(ch1);
+            Array.Sort(ch2);
+            string val1 = new string(ch1);
+            string val2 = new string(ch2);
+
+            if (val1 == val2)
             {
-                Console.Write(array[i] + " ");
+                Console.WriteLine("Both the strings are Anagrams");
             }
-            for (i = 1; i < n; i++)
+            else
             {
-                val = array[i];
-                flag = 0;
-                for (j = i - 1; j >= 0 && flag != 1;)
-                {
-                    if (val < array[j])
-                    {
-                        array[j + 1] = array[j];
-                        j--;
-                        array[j + 1] = val;
-                    }
-                    else flag = 1;
-                }
-            }
-            Console.Write("\nSorted Array is: ");
-            for (i = 0; i < n; i++)
-            {
-                Console.Write(array[i] + " ");
+                Console.WriteLine("Both the strings are not Anagrams");
             }
         }
     }
