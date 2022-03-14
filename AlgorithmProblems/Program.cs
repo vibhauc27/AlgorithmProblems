@@ -1,33 +1,38 @@
 ﻿using System;
-namespace BubbleSort
+namespace AlgorithmProblems
 {
-    class MySort
+    class InsertionSort
     {
         static void Main(string[] args)
         {
-            int[] array = { 5,2,6,9,1 };
-            int temp;
-
-            Console.WriteLine("The original elements are:");
-            foreach (int a in array)
-            Console.Write(a + " ");
-
-            for (int j = 0; j <= array.Length - 2; j++)
+            int[] array = new int[10] { 6,10,7,8,1,4,2,9,3,5 };
+            int n = 10, i, j, val, flag;
+            
+            Console.WriteLine("Initial array is: ");
+            for (i = 0; i < n; i++)
             {
-                for (int i = 0; i <= array.Length - 2; i++)
+                Console.Write(array[i] + " ");
+            }
+            for (i = 1; i < n; i++)
+            {
+                val = array[i];
+                flag = 0;
+                for (j = i - 1; j >= 0 && flag != 1;)
                 {
-                    if (array[i] > array[i + 1])
+                    if (val < array[j])
                     {
-                        temp = array[i + 1];
-                        array[i + 1] = array[i];
-                        array[i] = temp;
+                        array[j + 1] = array[j];
+                        j--;
+                        array[j + 1] = val;
                     }
+                    else flag = 1;
                 }
             }
-            Console.WriteLine("The bubble sorted elements are:");
-            foreach (int p in array)
-            Console.Write(p + " ");
-           
+            Console.Write("\nSorted Array is: ");
+            for (i = 0; i < n; i++)
+            {
+                Console.Write(array[i] + " ");
+            }
         }
     }
 }
